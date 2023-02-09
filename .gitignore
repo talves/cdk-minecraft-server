@@ -1,3 +1,6 @@
+# Ignore the Templates for testing
+templates/
+
 # Ignore js as we are using Typescript
 *.js
 !jest.config.js

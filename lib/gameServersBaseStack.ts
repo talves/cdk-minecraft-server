@@ -6,13 +6,13 @@ import * as efs from 'aws-cdk-lib/aws-efs'
 
 import { Networking } from './networking'
 
-export class GameServersBaseStack extends cdk.Stack {
+export class GameServersBaseStack extends cdk.NestedStack {
   readonly repository: ecr.Repository
   readonly vpc: ec2.Vpc
   readonly securityGroup: ec2.SecurityGroup
   readonly fileSystem: efs.FileSystem
 
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props?: cdk.NestedStackProps) {
     super(scope, id, props)
 
     const repository = new ecr.Repository(this, 'MinecraftRepository', {
@@ -51,7 +51,7 @@ export class GameServersBaseStack extends cdk.Stack {
 
       // https://aws.amazon.com/efs/features/infrequent-access/?&trk=el_a131L0000057zi2QAA&trkCampaign=CSI_Q2_2019_Storage_BizApps_EFS-IA_LP&sc_channel=el&sc_campaign=CSI_08_2019_Storage_EFS_Console&sc_outcome=CSI_Digital_Marketing
       lifecyclePolicy: efs.LifecyclePolicy.AFTER_30_DAYS,
-      removalPolicy: cdk.RemovalPolicy.SNAPSHOT
+      removalPolicy: cdk.RemovalPolicy.RETAIN
     })
 
     filesystem.addAccessPoint(`${name}AccessPoint`)

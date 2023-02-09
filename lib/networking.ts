@@ -9,7 +9,9 @@ export class Networking extends Construct {
     super(scope, id)
 
     this.vpc = new ec2.Vpc(this, 'VPC', {
-      cidr: '10.0.1.0/24',
+      natGateways: 0,
+      // cidr: '10.0.1.0/24',
+      // ipAddresses: ec2.IpAddresses.cidr("10.0.1.0/24"),
       maxAzs: 1,
       enableDnsHostnames: true,
       enableDnsSupport: true,

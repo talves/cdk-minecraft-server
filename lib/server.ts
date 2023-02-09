@@ -31,7 +31,7 @@ interface NetworkProps {
   readonly createLoadBalancer?: boolean
 }
 
-export interface ServerProps extends cdk.StackProps {
+export interface ServerProps extends cdk.NestedStackProps {
   readonly vpc: ec2.Vpc
   readonly imageProps: ImageProps
   readonly networkProps: NetworkProps
@@ -41,7 +41,7 @@ export interface ServerProps extends cdk.StackProps {
   readonly fileSystem?: efs.FileSystem
 }
 
-export class Server extends cdk.Stack {
+export class Server extends cdk.NestedStack {
   readonly serverName: string
 
   readonly vpc: ec2.Vpc

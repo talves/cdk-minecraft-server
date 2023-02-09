@@ -8,7 +8,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "synth:yml": "cdk synth --app 'npx ts-node --prefer-ts-exts bin/minecraft-cdk.ts' > templates/minecraft-server.yml"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
