@@ -1,6 +1,6 @@
-# Welcome to your CDK TypeScript project!
+# Minecraft Server Deployment (CDK)
 
-This is a blank project for TypeScript development with CDK.
+Minecraft Server using AWS CDK to build a Fargate instance and using a repository image (ecr)
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 

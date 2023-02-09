@@ -1,5 +1,5 @@
 {
-  "name": "minecraft-cdk",
+  "name": "cdk-minecraft-server",
   "version": "0.1.0",
   "bin": {
     "minecraft-cdk": "bin/minecraft-cdk.js"
