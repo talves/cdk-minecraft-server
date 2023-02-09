@@ -253,12 +253,13 @@ export class Server extends cdk.NestedStack {
     const getObjectStatement = new iam.PolicyStatement({
       effect: iam.Effect.ALLOW,
       actions: ["s3:GetObject"],
-      resources: [s3Location.objectKey]
+      resources: [`arn:aws:s3:::${s3Location.bucketName}/${s3Location.objectKey}`]
+      
     });
     const getBucketLocationStatement = new iam.PolicyStatement({
       effect: iam.Effect.ALLOW,
       actions: ["s3:GetBucketLocation"],
-      resources: [s3Location.bucketName]
+      resources: [`arn:aws:s3:::${s3Location.bucketName}`]
     });
     return [getObjectStatement,getBucketLocationStatement]
   }
